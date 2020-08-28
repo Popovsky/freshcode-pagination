@@ -1,0 +1,47 @@
+@import "./../../config/index";
+
+$primary-color: #cccccc;
+$secondary-color: silver;
+$action-color: yellow;
+
+%size {
+  $size: 40px;
+  width: $size;
+  height: $size;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  @extend %size;
+  @extend %flex-center;
+  background-color: $primary-color;
+  box-sizing: border-box;
+  border: 1px solid $secondary-color;
+  cursor: pointer;
+}
+
+.item:hover {
+  border-color: $action-color;
+  transition: 0.3s;
+}
+
+.currentItem {
+  border-color: $action-color;
+  color: $action-color;
+}
+
+.lastItem {
+  @extend %size;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.ellipsis {
+  color: black;
+  width: 24px;
+}

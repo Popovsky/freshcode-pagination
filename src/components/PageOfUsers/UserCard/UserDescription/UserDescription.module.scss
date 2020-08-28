@@ -1,0 +1,27 @@
+@import "./../../../config/index";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5 * $project-font-size 0 0;
+}
+
+.fullName, .age {
+  $oneLine: 1.8 * $project-font-size;
+  font-size: $oneLine;
+  min-height: $oneLine;
+  text-transform: capitalize;
+  font-weight: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.fullName:empty::before {
+  content: 'anonymous';
+}
+
+.age {
+  margin: 0.7 * $project-font-size 0 1.5 * $project-font-size;
+}

@@ -1,0 +1,10 @@
+@import "./../config/index";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1600px;
+  font-family: $project-font-family;
+  margin: auto;
+}
