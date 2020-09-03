@@ -4,7 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   padding: 1.5 * $project-font-size 0 0;
+  overflow: hidden;
 }
 
 .fullName, .age {
@@ -15,7 +17,6 @@
   font-weight: normal;
   white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .fullName:empty::before {
@@ -24,4 +25,8 @@
 
 .age {
   margin: 0.7 * $project-font-size 0 1.5 * $project-font-size;
+}
+
+.email {
+  min-height: $project-font-size;
 }

@@ -7,7 +7,7 @@ const UserDescription = ({user: {name: {first, last}, dob: {age}, email}}) => {
         <div className={styles.container}>
             <h1 className={styles.fullName}>{`${first} ${last}`.trim()}</h1>
             <div className={styles.age}>{age}</div>
-            <a href={email}>{email}</a>
+            <a className={styles.email} href={email}>{email}</a>
         </div>
     );
 };
@@ -15,19 +15,11 @@ const UserDescription = ({user: {name: {first, last}, dob: {age}, email}}) => {
 UserDescription.propTypes = {
     user: PropTypes.shape({
         email: PropTypes.string,
-        gender: PropTypes.string,
-        picture: PropTypes.shape({
-            large: PropTypes.string,
-            medium: PropTypes.string,
-            thumbnail: PropTypes.string,
-        }),
         name: PropTypes.shape({
-            title: PropTypes.string,
             first: PropTypes.string,
             last: PropTypes.string,
         }),
         dob: PropTypes.shape({
-            date: PropTypes.string,
             age: PropTypes.number,
         }),
     }),

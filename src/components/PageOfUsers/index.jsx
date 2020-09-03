@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import styles from './PageOfUsers.module.scss';
+import classNames from 'classnames';
 import getUsers from '../api';
 import UserCard from './UserCard';
-import Pagination from './Pagination';
 
 class PageOfUsers extends Component {
     constructor(props) {
@@ -11,18 +12,14 @@ class PageOfUsers extends Component {
             error: null,
             isLoaded: false,
             users: [],
-            currentPage: 1,
         };
     }
 
-    setPage = currentPage => {
-        this.setState({
-            currentPage,
-        });
-    };
-
     load = () => {
-        const {currentPage} = this.state;
+        this.setState({
+            isLoaded: false,
+        });
+        const {currentPage} = this.props;
         getUsers({page: currentPage})
             .then(
                 (res) => {
@@ -45,19 +42,20 @@ class PageOfUsers extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const {currentPage} = this.state;
-        if (currentPage !== prevState.currentPage) {
+        const {currentPage} = this.props;
+        if (currentPage !== prevProps.currentPage) {
             this.load();
         }
     }
 
     render() {
-        const {error, isLoaded, users, currentPage} = this.state;
+        const {error, isLoaded, users} = this.state;
         if (error) {
-            return <div>Ошибка: {error.message}</div>;
+            return <div>Error: {error.message}</div>;
         }
         if (!isLoaded) {
-            return <div>Загрузка...</div>;
+            const loaderClasses = classNames('loader', styles.loader);
+            return <div className={loaderClasses}/>;
         }
         return (
             <>
@@ -68,12 +66,18 @@ class PageOfUsers extends Component {
                         </li>
                     ))}
                 </ul>
-                <Pagination currentPage={currentPage} setPage={this.setPage}/>
+
             </>
         );
     }
 }
 
-PageOfUsers.propTypes = {};
+PageOfUsers.propTypes = {
+    currentPage: PropTypes.number,
+};
+
+PageOfUsers.defaultProps = {
+    currentPage: 1,
+};
 
 export default PageOfUsers;

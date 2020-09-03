@@ -18,6 +18,7 @@
   padding: 2.5 * $project-font-size 1.5 * $project-font-size;
   border-radius: 0.5 * $project-font-size;
   box-shadow: inset 0 0 6 * $project-font-size 12 * $project-font-size rgba(255, 255, 255, 0.5);
+  overflow: hidden;
 }
 
 .container:hover {
@@ -30,17 +31,21 @@
 }
 
 .bg-summer {
-  background-image: url("backgrounds/summer.webp");
+  background-image: url("backgrounds/summer.webp"),
+  linear-gradient(to right top, #def023, #e8f353, #f1f675, #f9f993, #fffcb1);;
 }
 
 .bg-autumn {
-  background-image: url("backgrounds/autumn.webp");
+  background-image: url("backgrounds/autumn.webp"),
+  linear-gradient(to right top, #ffbe29, #ffc553, #ffcd74, #ffd593, #ffddb1);;
 }
 
 .bg-winter {
-  background-image: url("backgrounds/winter.webp");
+  background-image: url("backgrounds/winter.webp"),
+  linear-gradient(to right top, #297eff, #41a2ff, #75c2ff, #afdfff, #edf9ff);
 }
 
 .bg-spring {
-  background-image: url("backgrounds/spring.webp");
+  background-image: url("backgrounds/spring.webp"),
+  linear-gradient(to right top, #20b711, #5dca4d, #87dc79, #adeea3, #d3ffcd);;
 }

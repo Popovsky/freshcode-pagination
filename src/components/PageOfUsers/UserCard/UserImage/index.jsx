@@ -52,7 +52,7 @@ class UserImage extends React.Component {
         return (
             <div className={containerClasses} style={{backgroundColor: userBackgroundColor}}>
                 <div className={styles.initials}>{`${first[0] ?? ''}${last[0] ?? ''}`}</div>
-                {isLoaded && !error ? <img className={styles.image} src={large} alt=''/> : <div className={styles.loader}/>}
+                {isLoaded && !error ? <img className={styles.image} src={large} alt=''/> : <div className="loader"/>}
             </div>
         );
     }
@@ -60,21 +60,13 @@ class UserImage extends React.Component {
 
 UserImage.propTypes = {
     user: PropTypes.shape({
-        email: PropTypes.string,
         gender: PropTypes.string,
         picture: PropTypes.shape({
             large: PropTypes.string,
-            medium: PropTypes.string,
-            thumbnail: PropTypes.string,
         }),
         name: PropTypes.shape({
-            title: PropTypes.string,
             first: PropTypes.string,
             last: PropTypes.string,
-        }),
-        dob: PropTypes.shape({
-            date: PropTypes.string,
-            age: PropTypes.number,
         }),
     }),
 };
