@@ -52,7 +52,7 @@ class UserImage extends React.Component {
         return (
             <div className={containerClasses} style={{backgroundColor: userBackgroundColor}}>
                 <div className={styles.initials}>{`${first[0] ?? ''}${last[0] ?? ''}`}</div>
-                {isLoaded && !error ? <img className={styles.image} src={large} alt=''/> : <div className="loader"/>}
+                {isLoaded && !error && <img className={styles.image} src={large} alt=''/>}
             </div>
         );
     }
